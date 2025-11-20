@@ -1,0 +1,7 @@
+{
+  "name": "Copy of PixelBooth Manager",
+  "description": "A mobile-first management interface for a Photo Booth system, featuring real-time controls, gallery management, and AI-powered photo analysis.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
