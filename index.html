@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -7,17 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              primary: '#06b6d4', // Cyan 500
-              secondary: '#6366f1', // Indigo 500
-              dark: '#0f172a', // Slate 900
-              surface: '#1e293b', // Slate 800
+              primary: '#f43f5e', // Rose 500 - Energetic Pink
+              secondary: '#f59e0b', // Amber 500 - Happy Yellow
+              accent: '#06b6d4', // Cyan 500 - Fresh Blue
+              surface: '#ffffff', // Pure White
+              page: '#f8fafc', // Very light slate/blue gray for background
+              text: '#1e293b', // Slate 800 for main text
+            },
+            fontFamily: {
+              sans: ['ui-rounded', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', 'sans-serif'],
             },
             animation: {
               'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+              'glow': '0 0 20px rgba(244, 63, 94, 0.3)',
             }
           }
         }
@@ -25,8 +41,8 @@
     </script>
     <style>
       body {
-        background-color: #0f172a;
-        color: #f8fafc;
+        background-color: #f8fafc;
+        color: #334155;
         -webkit-tap-highlight-color: transparent;
       }
       /* Hide scrollbar for clean mobile look */
@@ -36,6 +52,17 @@
       .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+      /* Custom scroll for gallery if needed */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
       }
     </style>
   <script type="importmap">

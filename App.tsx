@@ -5,6 +5,7 @@ import { DashboardView } from './components/DashboardView';
 import { GalleryView } from './components/GalleryView';
 import { RemoteView } from './components/RemoteView';
 import { SettingsView } from './components/SettingsView';
+import { Sparkles } from 'lucide-react';
 
 // Initial dummy data
 const initialPhotos: Photo[] = Array.from({ length: 8 }).map((_, i) => ({
@@ -59,19 +60,30 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark text-slate-50 font-sans selection:bg-primary/30">
-      <div className="max-w-md mx-auto bg-dark min-h-screen shadow-2xl relative">
+    <div className="min-h-screen bg-page text-slate-800 font-sans selection:bg-primary/20">
+      <div className="max-w-md mx-auto bg-page min-h-screen relative shadow-2xl shadow-slate-200 overflow-hidden">
+        
+        {/* Decorative background blobs */}
+        <div className="fixed top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="fixed bottom-20 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-x-1/3 pointer-events-none" />
+
         {/* Top Bar / Header - Hidden on Remote for full immersion */}
         {activeTab !== Tab.REMOTE && (
-            <header className="sticky top-0 z-40 bg-dark/80 backdrop-blur-md border-b border-white/5 px-4 py-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
-                        <span className="font-bold text-white text-lg">P</span>
-                    </div>
-                    <h1 className="font-bold text-lg tracking-tight">PixelBooth</h1>
-                </div>
+            <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 px-5 py-4 flex items-center justify-between transition-all duration-300">
                 <div className="flex items-center gap-3">
-                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse-fast shadow-[0_0_10px_#22c55e]" />
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center shadow-glow transform rotate-3">
+                        <Sparkles className="text-white w-5 h-5" />
+                    </div>
+                    <div>
+                      <h1 className="font-extrabold text-xl tracking-tight text-slate-800">Pixel<span className="text-primary">Booth</span></h1>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manager</p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-100">
+                     <div className="flex flex-col items-end">
+                        <span className="text-[10px] font-bold text-slate-400">STATUS</span>
+                     </div>
+                     <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse-fast shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
                 </div>
             </header>
         )}
